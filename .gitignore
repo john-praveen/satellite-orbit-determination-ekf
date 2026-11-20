@@ -1,0 +1,16 @@
+# Course material and personal files (not part of the project)
+notes/
+assignment/
+
+# LaTeX build files and the upload bundle (keep report.tex and report.pdf)
+report/*.aux
+report/*.log
+report/*.out
+report/*.toc
+report/*.lof
+report/*.lot
+report_overleaf.zip
+
+# MATLAB autosaves
+*.asv
+*.m~
