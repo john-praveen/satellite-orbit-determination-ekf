@@ -109,6 +109,17 @@
 \vspace{1cm}
 \end{titlepage}
 
+\begin{abstract}
+\noindent This report shows how the orbit of a satellite can be found from measurements taken by ground stations. The stations measure how far away the satellite is (range) and how fast that distance is changing (range-rate). These readings are noisy, and they are available only while the satellite is above the horizon. An Extended Kalman Filter (EKF) combines the readings with a model of the satellite's motion, which includes the Earth's gravity and its slight flattening (J2), to estimate the position and velocity of the satellite.
+
+\medskip
+\noindent The filter was written in MATLAB and tested in a 24-hour simulation with six ground stations (Moratuwa, London, New York, Tokyo, Sydney and Moscow). Even though measurements were available for only about 10.5\% of the time, the filter kept the position error to about 4 m RMS and the velocity error to about 4 mm/s after the first two hours. Two statistical checks, NEES and NIS, showed that the uncertainty reported by the filter can be trusted.
+
+\medskip
+\noindent Further tests changed the number of stations, the process noise, the starting error, the measurement noise and the physical model. They show where the filter works well and where it fails. For example, it diverges when the initial position error is about 50 km or more, when only one station is used, or when J2 is left out of the model. The code, the figures and a 3D animation of the tracking are available in the project's GitHub repository (link in Section~\ref{sec:code}).
+\end{abstract}
+\newpage
+
 \setcounter{tocdepth}{2}
 \tableofcontents
 \newpage
@@ -421,7 +432,9 @@ The truth is produced by a different integrator (\texttt{ode45}) than the one us
 The six stations are well-known cities spread over the globe (Figure~\ref{fig:track}). Moratuwa is close to the equator, while London and Moscow are at high northern latitudes, which a nearly polar orbit passes more often.
 
 \subsection{Code structure}
-The code is split into small functions, each with one job (Table~\ref{tab:files}).
+\label{sec:code}
+The code is split into small functions, each with one job (Table~\ref{tab:files}). The complete code, the report source, the figures and the 3D animation video are also available in the project's GitHub repository:\\
+\url{https://github.com/john-praveen/satellite-orbit-determination-ekf}
 
 \begin{table}[H]
 \centering
@@ -766,7 +779,7 @@ Future work could estimate the drag coefficient as an additional state, compare 
 \appendix
 \clearpage
 \section{MATLAB code}
-The listings below are the complete core code. To reproduce the results, put all files in one folder, run \texttt{run\_orbit\_ekf} for the baseline scenario and \texttt{run\_experiments} for the parameter studies. To play the 3D animation, run \texttt{run\_animation}. The plotting and printing helpers (\texttt{plot\_results.m}, \texttt{print\_summary.m}) are submitted with the code but are not listed here.
+The listings below are the complete core code. The same code is available at \url{https://github.com/john-praveen/satellite-orbit-determination-ekf}. To reproduce the results, put all files in one folder, run \texttt{run\_orbit\_ekf} for the baseline scenario and \texttt{run\_experiments} for the parameter studies. To play the 3D animation, run \texttt{run\_animation}. The plotting and printing helpers (\texttt{plot\_results.m}, \texttt{print\_summary.m}) are submitted with the code but are not listed here.
 
 \Needspace*{22\baselineskip}
 \subsection{Main script}
