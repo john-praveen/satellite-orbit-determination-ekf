@@ -6,9 +6,11 @@ An Extended Kalman Filter (EKF) that tracks a low-Earth-orbit satellite from gro
 
 ## 3D animation
 
-Click the picture to play the video (`results/orbit_animation.mp4`). It shows the rotating Earth, six ground stations, the true satellite (yellow), the EKF estimate (red ring), a green line of sight whenever a station is tracking, and the position error curve filling in on the right.
+The animation below plays automatically. It shows the rotating Earth, six ground stations, the true satellite (yellow), the EKF estimate (red ring), a green line of sight whenever a station is tracking, and the position error curve filling in on the right.
 
-[![3D animation of the satellite orbit and EKF tracking](results/7_animation_frame_1.png)](results/orbit_animation.mp4)
+![3D animation of the satellite orbit and EKF tracking](results/orbit_animation_preview.gif)
+
+This is a short preview of the full 24-hour animation. The full video (MP4, 30 MB) is in the repository: open [results/orbit_animation.mp4](results/orbit_animation.mp4) and use the download button if it does not play in the browser.
 
 ## What it does
 
